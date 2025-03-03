@@ -18,12 +18,8 @@ RUN if [ -z "${AUTH_KEY}" ]; then echo "Error: SSH_PRIV_KEY is not set" && exit 
 
 SHELL ["/bin/bash", "-c"]
 
-# package updates
-RUN printf "deb [ arch=amd64,i386 ] http://ftp.daumkakao.com/ubuntu/ bionic main restricted universe multiverse \n\
-deb [ arch=amd64,i386 ] http://ftp.daumkakao.com/ubuntu/ bionic-updates main restricted universe multiverse \n\
-deb [ arch=amd64,i386 ] http://ftp.daumkakao.com/ubuntu/ bionic-security main restricted universe multiverse \n\
-deb [ arch=amd64,i386 ] http://ftp.daumkakao.com/ubuntu/ bionic-backports main restricted universe multiverse\n" \
->> /etc/apt/sources.list
+# Replace default servers with Korea servers
+RUN sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list
 
 # package install
 RUN apt-get update && \
