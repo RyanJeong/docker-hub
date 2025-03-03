@@ -21,6 +21,9 @@ SHELL ["/bin/bash", "-c"]
 # Replace default servers with Korea servers
 RUN sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list
 
+# to skip prompts during installation
+ENV DEBIAN_FRONTEND=noninteractive
+
 # package install
 RUN apt-get update && \
     apt-get upgrade -y && \
