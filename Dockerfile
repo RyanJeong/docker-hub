@@ -64,7 +64,6 @@ RUN mkdir -p /run/sshd && \
 RUN sed -i 's:/bin/sh:/bin/bash:g' /etc/passwd
 
 #### To be able to run SSH
-# USER root
 WORKDIR "${USER_HOME}"
 
 CMD ["/usr/sbin/sshd", "-D"]
