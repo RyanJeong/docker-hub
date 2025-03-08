@@ -14,7 +14,7 @@ ARG AUTH_KEY
 
 RUN if [ -z "${SSH_PUB_KEY}" ]; then echo "Error: SSH_PUB_KEY is not set" && exit 1; fi
 RUN if [ -z "${SSH_PRIV_KEY}" ]; then echo "Error: SSH_PRIV_KEY is not set" && exit 1; fi
-RUN if [ -z "${AUTH_KEY}" ]; then echo "Error: SSH_PRIV_KEY is not set" && exit 1; fi
+RUN if [ -z "${AUTH_KEY}" ]; then echo "Error: AUTH_KEY is not set" && exit 1; fi
 
 SHELL ["/bin/bash", "-c"]
 
